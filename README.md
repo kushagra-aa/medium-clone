@@ -1,21 +1,65 @@
-# Next.js + Tailwind CSS Example
+# Road Game
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+<img src="./static/logo.png" width="15%" alt="logo"/>
 
-## Deploy your own
+My Medium is clone of Medium, this is a blogging Web-Application that is built on NextJS and uses Sanity for content management
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+Built with 🤍 For You!
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+Hosted On vercel
 
-## How to use
+<a target="_blank" href="https://mymedium-k.vercel.app/">
+  <img src="https://user-images.githubusercontent.com/68841296/160272392-61196a8e-8442-4195-9a62-180487b4ae26.png">
+</a>
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
+## Screenshots
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+### Home Page
+
+<img src="https://user-images.githubusercontent.com/68841296/160272439-ec806f8c-990b-4aea-b38e-c57aa576d02a.png" width="75%" />
+
+### Home Page Mobile
+
+<img src="https://user-images.githubusercontent.com/68841296/160272458-36bb25a4-d7a3-4724-9e65-4f1a7353329f.png" width="25%"/>
+
+### Blog
+
+<img src="https://user-images.githubusercontent.com/68841296/160272542-a3880432-f40f-4b67-b291-379c57204a44.png" width="75%" />
+
+### Blog Mobile
+
+<img src="https://user-images.githubusercontent.com/68841296/160272505-306d81ec-01ce-4dee-9986-616fb1bd1fc0.png" width="25%"/>
+
+## Made using
+
+- [HTML](https://www.w3schools.com/html/)
+- [CSS](https://www.w3schools.com/css/default.asp)
+- [JavaScript](https://www.w3schools.com/js/default.asp)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [ReactJs](https://reactjs.org/)
+- [NextJs](https://nextjs.org/)
+- [NodeJs](https://nodejs.org/en/)
+- [Sanity](https://www.sanity.io/)
+
+### Tools
+
+- [Adobe Illustrator](https://www.adobe.com/in/products/illustrator.html?gclid=CjwKCAjwrfCRBhAXEiwAnkmKmW22TvR_yR5HsJU6LKlqymL7bsf2_JZPurewrpYvRR9I2H412N4x0hoCsd0QAvD_BwE&sdid=SBNHMR64&mv=search&ef_id=CjwKCAjwrfCRBhAXEiwAnkmKmW22TvR_yR5HsJU6LKlqymL7bsf2_JZPurewrpYvRR9I2H412N4x0hoCsd0QAvD_BwE:G:s&s_kwcid=AL!3085!3!248235017693!e!!g!!adobe%20illustrator!221172068!17525759228)
+- [Figma](https://www.figma.com/)
+- [VS Code](https://code.visualstudio.com/)
+
+### Some Websites Used
+
+- [Favicon.io](https://favicon.io/)
+
+## Concepts Used
+
+- Next SSR
+- React Props
+- React States
+- React Components
+- Javascript Objects
+- CSS Animations
+- Responsive CSS
+- TSX

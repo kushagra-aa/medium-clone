@@ -18,7 +18,7 @@ const Header = () => {
           <h3>Home</h3>
         </Link>
         <Link href="/about">
-          <h3 className="rounded-full border border-blue-600 px-4 py-1">
+          <h3 className="transitional rounded-full border border-blue-600 px-4 py-1 hover:bg-blue-600 hover:text-white">
             About
           </h3>
         </Link>

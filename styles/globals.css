@@ -5,3 +5,21 @@
 .blur-2 {
   filter: blur(2px);
 }
+
+.hover-up,
+.hover-down {
+  transition: transform 0.5s ease-in-out;
+}
+.hover-down:hover {
+  transform: translateY(25%);
+}
+.hover-up:hover {
+  transform: translateY(-25%);
+}
+
+.transition-up {
+  transition: transform 1s ease-in-out;
+}
+.transitional {
+  transition: all 0.5s ease-in-out;
+}
