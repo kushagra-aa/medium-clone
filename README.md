@@ -1,4 +1,4 @@
-# Road Game
+# My Medium
 
 <img src="./static/logo.png" width="15%" alt="logo"/>
 
