@@ -6,6 +6,7 @@ import PortableText from 'react-portable-text'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { useState } from 'react'
 import Head from 'next/head'
+import Link from 'next/link'
 
 interface Props {
   post: Posts
@@ -48,7 +49,7 @@ const Post = ({ post }: Props) => {
       <Header />
       <main className="">
         <img
-          className="h-40 w-full object-cover"
+          className="blur-2 h-80 w-full object-cover"
           src={urlFor(post.mainImage).url()}
           alt="main"
         />
@@ -65,9 +66,21 @@ const Post = ({ post }: Props) => {
             />
             <p className="text-sm font-extralight">
               Blog post by{' '}
-              <span className="text-green-600">{post.author.name}</span> -
+              <span className="text-blue-600">{post.author.name}</span> -
               Published at {new Date(post._createdAt).toLocaleString()}
             </p>
+          </div>
+          <div className="overflow-wrap mt-3 flex justify-start gap-5">
+            {post.allcategories.map((cat) => {
+              if (post.categories.some((c) => cat._id === c._ref))
+                return (
+                  <Link key={cat._id} href={'/category/' + cat.slang}>
+                    <p className="test-xs max-w-max cursor-pointer rounded border p-1 text-blue-400">
+                      {cat.title}
+                    </p>
+                  </Link>
+                )
+            })}
           </div>
           <div className="mt-10">
             <PortableText
@@ -94,10 +107,10 @@ const Post = ({ post }: Props) => {
               }}
             />
           </div>
-          <hr className="my-5 mx-auto max-w-lg border border-yellow-500" />
+          <hr className="my-5 mx-auto max-w-lg border border-blue-500" />
 
           {submitted ? (
-            <div className="my-10 mx-auto flex max-w-2xl flex-col gap-3 bg-yellow-500 p-10 text-white">
+            <div className="my-10 mx-auto flex max-w-2xl flex-col gap-3 bg-blue-500 p-10 text-white">
               <h3 className="text-3xl font-bold">
                 Thank you for submitting your comment!
               </h3>
@@ -108,7 +121,7 @@ const Post = ({ post }: Props) => {
               onSubmit={handleSubmit(onSubmit)}
               className="mx-auto mb-10 flex max-w-2xl flex-col p-5"
             >
-              <h3 className="text-sm capitalize text-yellow-500">
+              <h3 className="text-sm capitalize text-blue-500">
                 enjoyed this article?
               </h3>
               <h3 className="cap text-3xl font-bold">Leave a comment below</h3>
@@ -123,7 +136,7 @@ const Post = ({ post }: Props) => {
                 <span className="text-gray-700">Name</span>
                 <input
                   {...register('name', { required: true })}
-                  className="form-input mt-1 block w-full rounded border py-2 px-3 shadow outline-none ring-yellow-500 focus:ring"
+                  className="form-input mt-1 block w-full rounded border py-2 px-3 shadow outline-none ring-blue-500 focus:ring"
                   placeholder="Enter your name"
                   type="text"
                 />
@@ -132,7 +145,7 @@ const Post = ({ post }: Props) => {
                 <span className="text-gray-700">Email</span>
                 <input
                   {...register('email', { required: true })}
-                  className="form-input mt-1 block w-full rounded border py-2 px-3 shadow outline-none ring-yellow-500 focus:ring"
+                  className="form-input mt-1 block w-full rounded border py-2 px-3 shadow outline-none ring-blue-500 focus:ring"
                   placeholder="Enter email"
                   type="email"
                 />
@@ -141,7 +154,7 @@ const Post = ({ post }: Props) => {
                 <span className="text-gray-700">Comment</span>
                 <textarea
                   {...register('comment', { required: true })}
-                  className="form-textarea mt-1 block w-full rounded border py-2 px-3 shadow outline-none ring-yellow-500 focus:ring"
+                  className="form-textarea mt-1 block w-full rounded border py-2 px-3 shadow outline-none ring-blue-500 focus:ring"
                   placeholder="Comment here"
                   rows={8}
                 />
@@ -165,19 +178,27 @@ const Post = ({ post }: Props) => {
               </div>
               <input
                 type="submit"
-                className="focus:shadow-outline focus:otline-none rounder cursor-pointer bg-yellow-500 py-2 px-4 font-bold capitalize text-white hover:bg-yellow-400"
+                className="focus:shadow-outline focus:otline-none rounder cursor-pointer bg-blue-500 py-2 px-4 font-bold capitalize text-white hover:bg-blue-400"
                 value="submit"
               />
             </form>
           )}
           {/* comments */}
-          <div className="my-10 mx-auto flex max-w-2xl flex-col space-y-2 p-10 shadow shadow-yellow-500">
+          <div className="my-10 mx-auto flex max-w-2xl flex-col space-y-2 p-10 shadow-inner shadow-blue-500">
             <h3 className="text-4xl">Comments</h3>
             <hr className="pb-2" />
+            {post.comments.length <= 0 && (
+              <p className="text-xl capitalize text-blue-500">
+                no comments yet <br />
+                <span className="text-lg text-gray-500">
+                  be the first to comment
+                </span>
+              </p>
+            )}
             {post.comments.map((comment) => (
               <div key={comment._id} className="">
                 <p>
-                  <span className="text-yellow-500">{comment.name}</span> says '
+                  <span className="text-blue-500">{comment.name}</span> says '
                   {comment.comment}'
                 </p>
               </div>
@@ -209,22 +230,25 @@ export const getStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const query = `*[_type=="post"&& slug.current==$slug][0]{
     _id,
-    _createdAt,
-    title,
-    author->{
-    name,
-    image
-  },
-    'comments': *[
-    _type=="comment" &&
-    post._ref==^._id &&
-    approved==true],
-  description,
-  mainImage,
-  slug,
-  body
+  _createdAt,
+  title,
+  author->{
+  name,
+  image
+},
+  'comments': *[
+  _type=="comment" &&
+  post._ref==^._id &&
+  approved==true],
+categories,
+'allcategories':*[
+  _type=="category"
+],
+description,
+mainImage,
+slug,
+body
   }`
-
   const post = await sanityClient.fetch(query, { slug: params?.slug })
 
   if (!post || post.length === 0) {
