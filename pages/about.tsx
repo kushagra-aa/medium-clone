@@ -51,12 +51,12 @@ const About = () => {
             <p className="text-2xl text-gray-700">
               Creating memorable Websites and Apps.
             </p>
-            <div className="text-1xl mb-10 flex w-2/3 justify-between capitalize">
+            <div className="lg:text-1xl mb-10 flex w-2/3 flex-col justify-between gap-4 text-lg capitalize md:flex-row md:text-xl">
               <a
                 href="https://kushagra-aa.github.io/portfolio/#about"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover-down w-1/4 rounded bg-blue-600 p-2 text-center text-blue-200 shadow-xl"
+                className="hover-down rounded bg-blue-600 p-2 text-center text-blue-200 shadow-xl md:w-1/4"
               >
                 more about me
               </a>
@@ -64,7 +64,7 @@ const About = () => {
                 href="https://kushagra-aa.github.io/portfolio/#contact"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover-up w-1/4 rounded bg-blue-200 p-2 text-center text-blue-600 shadow-xl"
+                className="hover-up rounded bg-blue-200 p-2 text-center text-blue-600 shadow-xl md:w-1/4"
               >
                 contact me
               </a>
@@ -72,7 +72,7 @@ const About = () => {
                 href="https://kushagra-aa.github.io/portfolio/#projects"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover-down w-1/4 rounded bg-blue-600 p-2 text-center text-blue-200 shadow-xl"
+                className="hover-down rounded bg-blue-600 p-2 text-center text-blue-200 shadow-xl md:w-1/4"
               >
                 more by me
               </a>
